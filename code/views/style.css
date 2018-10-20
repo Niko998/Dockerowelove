@@ -1,9 +1,24 @@
-body
-{
+body {
+    background: #d8d8d8;
 }
 
-.square
-{
-    float: left;
-    width: 200px;
+.container {
+    background: #FFF;
+    min-height: 100vh;
+}
+
+.badge {
+    font-size: 20px;
+}
+
+.rectangle {
+    display: flex;
+}
+
+.second-square {
+    flex: 1;
+}
+
+form {
+    margin: 0 auto;
 }
