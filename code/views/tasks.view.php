@@ -9,17 +9,21 @@
     
 </head>
 <body>
+    <a href='/'>Main page</a>
     <h1>Dziala</h1>
+    <ul>
     <?php
-       
-       #var_dump($app['database']);
-       
-       foreach($y as $row){ 
-       foreach($row as $key => $case) {
-        echo $key." hejo ".$case . "<br>";
-           }    }
-        #print_r($y);
+              $i=0;
+              $wypis = ["Zadanie nr.", "Zadanie: ", "Do dnia: "];
+       foreach($y as $row){ echo "<li>";
+            foreach($row as $key => $case) {
+                echo  $wypis[$i%3].$case.", ";
+                $i=$i+1;
+           }    echo "</li><br>";
+        }
+        
 
     ?>
+    </ul>
 </body>
 </html>
