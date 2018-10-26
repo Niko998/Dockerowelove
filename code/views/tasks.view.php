@@ -13,12 +13,12 @@
     <h1>Dziala</h1>
     <ul>
     <?php
-              $i=0;
-              $wypis = ["Zadanie nr.", "Zadanie: ", "Do dnia: "];
-       foreach($y as $row){ echo "<li>";
+
+              $wypisTitles = ['id' => "Zadanie nr.", 'description' => "Zadanie: ", 'finish' => "Do dnia: "];
+       foreach($y as $index => $row){ 
+        echo "<li>";
             foreach($row as $key => $case) {
-                echo  $wypis[$i%3].$case.", ";
-                $i=$i+1;
+                echo  $wypisTitles[$key].$case.", ";
            }    echo "</li><br>";
         }
         

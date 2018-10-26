@@ -16,7 +16,7 @@ class Querybuilder
 
         $statement->execute();
         
-        $x= $statement->fetchAll(PDO::FETCH_OBJ);
+        $x= $statement->fetchAll(PDO::FETCH_ASSOC);
         return $x;
     }
 
