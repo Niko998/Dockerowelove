@@ -11,3 +11,5 @@ require Router::load('routes.php')
 
 #dodac /task, dzialajace
 #usuwanie zadan zrobionych
+
+#zrobienie czegokolwiek
