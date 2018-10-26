@@ -1,4 +1,5 @@
 <?php
 
-$router->get('','controlers/index.php');
-$router->post('tasks','controlers/tasks.php');
+$router->get('','pagescontroler@home');
+$router->post('tasks','pagescontroler@tasks');
+$router->get('tasks','pagescontroler@show');
