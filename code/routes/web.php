@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/whatisit',function(){
+    return view('whatisit');
+});
