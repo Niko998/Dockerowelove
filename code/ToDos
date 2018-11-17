@@ -1,2 +1,19 @@
 Zrobic dodawanie pytan na nastepna strone
 Przerobic kilka laracastow
+
+
+
+Stworzyc migracje:
+users
+users_tasks
+
+Poczytac
+https://laravel.com/docs/5.7/database
+https://laravel.com/docs/5.7/eloquent
+
+logowanie:
+https://laravel.com/docs/5.7/authentication
+
+Utworzyc system logowania i rejestracji
+Utworze system dodawania taskow dla zalogowanego usera 
+Utworze system wypisywania taskow dla zalogowanego usera 
