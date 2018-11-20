@@ -21,5 +21,10 @@ MyStone
     </div>
 </div>';
 
+    foreach ($users as $key){
+            echo $key->description;
+            echo "<br>";
+        }
     ?>
+    
 @endsection
