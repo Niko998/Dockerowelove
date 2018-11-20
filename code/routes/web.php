@@ -12,5 +12,9 @@
 */
 Route::get('/','PagesController@home');
 Route::get('/whatisit','PagesController@whatisit');
-Route::post('/','PagesController@home');
+Route::get('/addtask','PagesController@addtask');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

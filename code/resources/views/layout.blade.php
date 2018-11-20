@@ -9,7 +9,7 @@
 </head>
 <body>
     <ul><li><a href="/whatisit">What is it?</a></li></ul>
-    <ul><li><a href="/">Home page</a></li></ul>
+    <ul><li><a href="/home">Home page</a></li></ul>
     @yield('content')
 </body>
 </html>

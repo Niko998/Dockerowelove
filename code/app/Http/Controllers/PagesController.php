@@ -10,13 +10,20 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $users = DB::select('select * from todos');
+        
 
-        return view('welcome', ['users' => $users]);
+        return view('home');
     }
 
     public function whatisit()
     {
         return view('whatisit');
+    }
+
+    public function addtask()
+    {
+        $users = DB::select('select * from todos');
+
+        return view('addtask', ['users' => $users]);
     }
 }
