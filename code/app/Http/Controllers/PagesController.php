@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class PagesController extends Controller
 {
@@ -22,8 +23,24 @@ class PagesController extends Controller
 
     public function addtask()
     {
-        $users = DB::select('select * from todos');
+        
+        return view('addtask');
+    }
 
-        return view('addtask', ['users' => $users]);
+    public function added()
+    {
+        $name = $_POST["task"];
+        $fdate = $_POST["final_date"];
+        $userIDs = Auth::user()->id;
+        DB::insert('insert into todos (description, final_date, user_id) values (?, ?, ?)', [$name, $fdate, $userIDs]);
+              
+        return view('added', ['userid' => $userIDs]);
+    }
+
+    public function yourtasks()
+    {
+        $userIDs = Auth::user()->id;
+        $users = DB::select("select * from todos where user_id = ".$userIDs."");
+        return view('yourtasks', ['users' => $users]);
     }
 }

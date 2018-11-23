@@ -13,6 +13,8 @@
 Route::get('/','PagesController@home');
 Route::get('/whatisit','PagesController@whatisit');
 Route::get('/addtask','PagesController@addtask');
+Route::post('/added','PagesController@added');
+Route::get('/yourtasks','PagesController@yourtasks');
 
 
 Auth::routes();

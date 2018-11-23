@@ -1,19 +1,19 @@
-Zrobic dodawanie pytan na nastepna strone
-Przerobic kilka laracastow
-
-
-
-Stworzyc migracje:
-users
-users_tasks
+modele 
+dodac kolumny przez mysql
 
 Poczytac
 https://laravel.com/docs/5.7/database
 https://laravel.com/docs/5.7/eloquent
 
-logowanie:
-https://laravel.com/docs/5.7/authentication
+PagesController - czemu nie dziala
+migracje 
+Co dalej: ->podtaski
+            ->wyglad
+            ->czasowe przeniesienie do home
+            ->rozne home dla zalogowanego i goscia
+            ->interakcje z taskami
 
-Utworzyc system logowania i rejestracji
-Utworze system dodawania taskow dla zalogowanego usera 
-Utworze system wypisywania taskow dla zalogowanego usera 
+
+    podtaski:
+        ->taski z polem task_id
+        ->data 
