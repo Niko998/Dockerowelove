@@ -1,11 +1,13 @@
-modele 
-dodac kolumny przez mysql
+dodac parent_id zamiast nowej tabeli 
+
+
+
 
 Poczytac
 https://laravel.com/docs/5.7/database
 https://laravel.com/docs/5.7/eloquent
 
-PagesController - czemu nie dziala
+
 migracje 
 Co dalej: ->podtaski
             ->wyglad
@@ -17,3 +19,6 @@ Co dalej: ->podtaski
     podtaski:
         ->taski z polem task_id
         ->data 
+
+Naprawic:
+    if'a z yourtasks.blade.php
