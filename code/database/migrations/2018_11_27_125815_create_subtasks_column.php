@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubtasksTable extends Migration
+class CreateSubtasksColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateSubtasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('subtodos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('description');
-            $table->date('final_date');
-            $table->integer("task_id");
-            $table->timestamps();
+        Schema::table('todos', function (Blueprint $table) {
+            $table->integer("parent_id")->after("user_id")->default(0);
         });
     }
 
@@ -29,6 +25,8 @@ class CreateSubtasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subtodos');
+        Schema::table('todos', function (Blueprint $table) {
+            $table->dropColumn("parent_id");
+        });
     }
 }

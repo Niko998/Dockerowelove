@@ -11,7 +11,7 @@ Twoje taski to: <br>
     //ten if nie dziala :(
     if ($tasks==NULL){ echo "You don't have any tasks!"; }
     foreach ($tasks as $key){ echo "<li>";
-            echo "<button>";
+            echo "<a href=/yoursubtasks/{$key->id}>";
             echo "Zrobic: ".$key->description.", do dnia: ".$key->final_date;
             echo "<br>";
             echo "</button>";

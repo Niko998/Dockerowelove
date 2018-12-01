@@ -1,7 +1,3 @@
-dodac parent_id zamiast nowej tabeli 
-
-
-
 
 Poczytac
 https://laravel.com/docs/5.7/database
@@ -9,16 +5,19 @@ https://laravel.com/docs/5.7/eloquent
 
 
 migracje 
-Co dalej: ->podtaski
+Co dalej: ->podtaski, zeby data byla dobra
             ->wyglad
-            ->czasowe przeniesienie do home
+            ->czasowe przeniesienie do home po added
             ->rozne home dla zalogowanego i goscia
             ->interakcje z taskami
 
 
     podtaski:
-        ->taski z polem task_id
         ->data 
 
 Naprawic:
     if'a z yourtasks.blade.php
+
+3. nie musisz używać $_POST żeby pobrać dane z requesta. Możesz używać: https://laravel.com/docs/5.7/requests#accessing-the-request
+4. poczytaj o i spróbuj zaimplementować przy dodawaniu todosa: https://laravel.com/docs/5.7/validation#form-request-validation
+5. w blade masz dostępne loopy: https://laravel.com/docs/5.7/blade#loops użyj ich zamiast pisać czysty PHP
