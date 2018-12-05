@@ -9,16 +9,14 @@ Your tasks
 <br>
 Twoje Podtaski to:
 <ol>
-<?php
-    
-    foreach ($subtasks as $key){ echo "<li>";
-            echo "Zrobic: ".$key->description.", do dnia: ".$key->final_date;
-            echo "<br>";
-            echo "</button>";
 
-            echo "</li>";
-        }
-        ?>
+    
+    @foreach ($subtasks as $key)
+        <li>
+            Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
+            <br>
+        </li>
+        @endforeach
         <br>
         <br>
 Dodaj nowy podtask

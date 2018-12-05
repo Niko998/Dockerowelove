@@ -9,7 +9,7 @@ class Todo extends Model
 {
     protected $table = 'todos';
 
-    public static function addToDB($description, $final_date,$parent_id = 0){
+    public static function addToDB($description, $final_date, $parent_id = 0){
         $task = new Todo;
         $task->description = $description;
         $task->final_date = $final_date;

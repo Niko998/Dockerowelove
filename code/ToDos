@@ -18,6 +18,6 @@ Co dalej: ->podtaski, zeby data byla dobra
 Naprawic:
     if'a z yourtasks.blade.php
 
-3. nie musisz używać $_POST żeby pobrać dane z requesta. Możesz używać: https://laravel.com/docs/5.7/requests#accessing-the-request
+-x-3. nie musisz używać $_POST żeby pobrać dane z requesta. Możesz używać: https://laravel.com/docs/5.7/requests#accessing-the-request
 4. poczytaj o i spróbuj zaimplementować przy dodawaniu todosa: https://laravel.com/docs/5.7/validation#form-request-validation
-5. w blade masz dostępne loopy: https://laravel.com/docs/5.7/blade#loops użyj ich zamiast pisać czysty PHP
+-x-5. w blade masz dostępne loopy: https://laravel.com/docs/5.7/blade#loops użyj ich zamiast pisać czysty PHP

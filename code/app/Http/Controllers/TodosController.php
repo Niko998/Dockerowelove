@@ -14,9 +14,12 @@ class TodosController extends Controller
         return view('addtask');
     }
 
-    public function added()
+    public function added(Request $request)
     {
-        Todo::addToDB($_POST["task"],$_POST["final_date"],$_POST["parent_id"]);       
+        if ($request->input("parent_id") == null){ $parent = 0; }
+        else {$parent = $request->input("parent_id");}
+        //Todo::addToDB($request->input("task"),$request->input("final_date"),$request->input("parent_id"));       
+        Todo::addToDB($request->input("task"),$request->input("final_date"),$parent); 
         return view('added');
     }
 

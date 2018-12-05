@@ -15,8 +15,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    @guest
+                        Log in or register!
+                    @else
+                        Add new task!
+                    @endguest
+                    
                 </div>
             </div>
         </div>
