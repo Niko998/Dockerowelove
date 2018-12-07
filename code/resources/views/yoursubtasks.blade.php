@@ -5,7 +5,11 @@ Your tasks
 @endsection
 
 @section('content')
-<?php echo $maintask[0]->description;?> 
+<div>
+<p style="font: 32px Arial;">
+<?php echo $maintask[0]->description;?>
+</p> 
+</div>
 <br>
 Twoje Podtaski to:
 <ol>

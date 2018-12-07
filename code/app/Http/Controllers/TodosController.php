@@ -16,10 +16,10 @@ class TodosController extends Controller
 
     public function added(Request $request)
     {
-        if ($request->input("parent_id") == null){ $parent = 0; }
-        else {$parent = $request->input("parent_id");}
-        //Todo::addToDB($request->input("task"),$request->input("final_date"),$request->input("parent_id"));       
-        Todo::addToDB($request->input("task"),$request->input("final_date"),$parent); 
+        
+        //Dlaczego nie dziala null=>domyslna wartosc =0
+        if (!Todo::dateValidation($request->input("final_date"), $request->input("parent_id"))) return view('notadded');
+        Todo::addToDB($request->input("task"),$request->input("final_date"),$request->input("parent_id")); 
         return view('added');
     }
 

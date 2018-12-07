@@ -16,6 +16,7 @@ Addtask
                 @csrf
                 Chce: <input name="task" type="text" value="Wpisz cel"/><br>
                 Kiedy: <input name="final_date" type="date" value="Wpisz date"/> <br>
+                <input name="parent_id" type="hidden" value="<?php echo 0 ?>">
                 <input type="submit" value="Dodaj cel" class="btn btn-success mt-5"/>             
             </form>
         </div>

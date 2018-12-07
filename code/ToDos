@@ -4,20 +4,14 @@ https://laravel.com/docs/5.7/database
 https://laravel.com/docs/5.7/eloquent
 
 
-migracje 
-Co dalej: ->podtaski, zeby data byla dobra
+Co dalej: ->podtaski, zeby data byla dobra - done
             ->wyglad
+                ->ogarnac jak dziala css
+                ->stworzyc plik css
             ->czasowe przeniesienie do home po added
             ->rozne home dla zalogowanego i goscia
+                ->Troche bardziej rozbudowane 
             ->interakcje z taskami
+                ->dodac usuwanie taskow
 
-
-    podtaski:
-        ->data 
-
-Naprawic:
-    if'a z yourtasks.blade.php
-
--x-3. nie musisz używać $_POST żeby pobrać dane z requesta. Możesz używać: https://laravel.com/docs/5.7/requests#accessing-the-request
 4. poczytaj o i spróbuj zaimplementować przy dodawaniu todosa: https://laravel.com/docs/5.7/validation#form-request-validation
--x-5. w blade masz dostępne loopy: https://laravel.com/docs/5.7/blade#loops użyj ich zamiast pisać czysty PHP
