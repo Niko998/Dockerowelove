@@ -17,6 +17,10 @@ class TodosController extends Controller
     public function added(Request $request)
     {
         
+        $request->validate([
+            'task' => 'required',
+            'final_date' => 'date',
+            ]);
         //Dlaczego nie dziala null=>domyslna wartosc =0
         if (!Todo::dateValidation($request->input("final_date"), $request->input("parent_id"))) return view('notadded');
         Todo::addToDB($request->input("task"),$request->input("final_date"),$request->input("parent_id")); 

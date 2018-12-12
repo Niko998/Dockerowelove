@@ -20,6 +20,8 @@ Addtask
                 <input type="submit" value="Dodaj cel" class="btn btn-success mt-5"/>             
             </form>
         </div>
+        <img src="<?php echo Storage::url("tiger.jpg");?>"/>
+        
     </div>
 </div>
 

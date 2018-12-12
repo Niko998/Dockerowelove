@@ -8,10 +8,20 @@ Co dalej: ->podtaski, zeby data byla dobra - done
             ->wyglad
                 ->ogarnac jak dziala css
                 ->stworzyc plik css
-            ->czasowe przeniesienie do home po added
+            ->czasowe przeniesienie do home po added - JS
             ->rozne home dla zalogowanego i goscia
                 ->Troche bardziej rozbudowane 
             ->interakcje z taskami
                 ->dodac usuwanie taskow
 
 4. poczytaj o i spróbuj zaimplementować przy dodawaniu todosa: https://laravel.com/docs/5.7/validation#form-request-validation
+
+czym jest sass
+czym jest node.js
+kompilacja sassa
+    webpack
+dodanie bulmy
+
+
+Kiedys:
+    Dodawanie plikow do taskow
