@@ -37,19 +37,16 @@ class Todo extends Model
         return Todo::where('id',$id)->get();   
     }
 
-    public static function dateValidation($date,$parent)
+    public static function dateValidation($parent)
     {
-        $today = date("Y-m-d");
         if ($parent == 0) {
-            if ($today > $date) return false;
-            else return true;
+            return "2198-05-16";
         }
         else {
             $parentTask = Todo::where('id',$parent)->get();
-            if ($today <= $date and $date <= $parentTask[0]->final_date){
-                return true;
-            }
-            else return false;
+            return $parentTask[0]->final_date;
         }
+        
+        
     }
 }

@@ -28,4 +28,11 @@ services:
         env_file:
             - ./.env
         ports:
-            - "3306:3306"    
+            - "3306:3306"
+    node:
+        container_name: node
+        working_dir: /code
+        image: node:10.14.2-alpine
+        volumes:
+            - ./code:/code
+        command: npm install

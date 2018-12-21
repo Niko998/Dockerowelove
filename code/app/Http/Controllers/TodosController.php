@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Todo;
 use Auth;
@@ -16,13 +17,11 @@ class TodosController extends Controller
 
     public function added(Request $request)
     {
-        
+        $parDate = Todo::dateValidation($request->input("parent_id"));
         $request->validate([
-            'task' => 'required',
-            'final_date' => 'date',
+            'task' => "required|filled",
+            'final_date' => "date|after:today|before:$parDate",
             ]);
-        //Dlaczego nie dziala null=>domyslna wartosc =0
-        if (!Todo::dateValidation($request->input("final_date"), $request->input("parent_id"))) return view('notadded');
         Todo::addToDB($request->input("task"),$request->input("final_date"),$request->input("parent_id")); 
         return view('added');
     }
