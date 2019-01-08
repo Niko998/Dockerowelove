@@ -11173,15 +11173,23 @@ label.panel-block:hover {
 }
 
 .navbar {
-  background-color: #00d1b2;
+  background-color: #6cb2eb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-.buttons-are-medium {
-  width: 100px;
 }
 
 #nav_menu {
   float: right;
+}
+
+#navTitle {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Lucida Console";
+}
+
+.py-4 {
+  background-color: whitesmoke;
+  height: 800px;
 }
 

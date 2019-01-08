@@ -47648,6 +47648,21 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+var myElement = document.getElementById("navbarDropdown");
+var myTrueElement = document.getElementById("nav_menu");
+myElement.addEventListener("click", showing, false);
+document.addEventListener("click", hiding, false);
+
+function showing(e) {
+  e.preventDefault();
+  myTrueElement.classList.add("is-active");
+}
+
+function hiding(e) {
+  if (e.target.closest('#nav_menu') === null) {
+    myTrueElement.classList.remove("is-active");
+  }
+}
 
 /***/ }),
 

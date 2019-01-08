@@ -4,5 +4,7 @@
 
 
 @section('content')
-<h1 font="comic sans">This is superb site to define your longterm whishes</h1>
+<div class="container">
+    <h2 font="comic sans">This is superb site to define your longterm whishes</h2>
+</div>
 @endsection

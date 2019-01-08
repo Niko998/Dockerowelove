@@ -15,7 +15,7 @@ Addtask
         <div class="square second-square">
             <form action="/added" method="post">
                 @csrf
-                Chce: <input name="task" type="text" value="Wpisz cel"/><br>
+                Chce: <input name="task" type="text" placeholder="Wpisz cel"/><br>
                 <?php //$errors = $validator->errors();
                 //echo $errors->first('task');?>
                 Kiedy: <input name="final_date" type="date" value="Wpisz date"/> <br>
@@ -23,8 +23,7 @@ Addtask
                 <input type="submit" value="Dodaj cel" class="btn btn-success mt-5"/>             
             </form>
         </div>
-        <img src="<?php echo Storage::url("tiger.jpg");?>"/>
-        
+                
     </div>
 </div>
 
