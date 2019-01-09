@@ -14,7 +14,7 @@ Your tasks
                 @foreach ($tasks as $key)
                     <li> 
 
-                        <a href="/yoursubtasks/{{ $key->id }}">
+                        <a href="/yoursubtasks/{{ $key->id }}" class="tasks">
                         Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
                         <br>
                     </li>

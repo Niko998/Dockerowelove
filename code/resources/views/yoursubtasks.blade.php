@@ -11,6 +11,7 @@ Your tasks
         <?php echo $maintask[0]->description;?>
         </p> 
     </div>
+    
     <br>
     Twoje Podtaski to:
     <ol>
@@ -27,8 +28,8 @@ Your tasks
     Dodaj nowy podtask
             <form action="/added" method="post">
                     @csrf
-                    Chce: <input name="task" type="text" placeholder="Wpisz cel"/><br>
-                    Kiedy: <input name="final_date" type="date" value="Wpisz date"/> <br>
+                    Chce: <input name="task" type="text" placeholder="Wpisz cel" class="input is-rounded"/><br>
+                    Kiedy: <input name="final_date" type="date" value="Wpisz date" class="input is-rounded"/> <br>
                     <input name="parent_id" type="hidden" value="<?php echo $maintask[0]->id ?>">
                     <input type="submit" value="Dodaj subtask" class="btn btn-success mt-5"/>             
                 </form>

@@ -11190,6 +11190,15 @@ label.panel-block:hover {
 
 .py-4 {
   background-color: whitesmoke;
-  height: 800px;
+  height: 750px;
+}
+
+.tasks {
+  color: black;
+  font-family: "Lucida Console";
+}
+
+.footer {
+  padding: 1.5rem 1.5rem 1.5rem;
 }
 
