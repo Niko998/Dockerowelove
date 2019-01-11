@@ -1,7 +1,6 @@
-
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <?php header( "refresh:2;url=/home" ); ?>
 <div class="deleted">
-Podana data jest nieprawidlowa! <br>
+Task zostal usuniety prawidlowo! <br>
 </div>
-<a class="btn btn-danger" href="/home" role="button">Powrot do strony glownej</a>
+<a class="btn btn-success" href="/home" role="button">Powrot do strony glownej</a>

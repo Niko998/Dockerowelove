@@ -39,14 +39,14 @@
                     <div class="navbar-end">
                             <!-- Authentication Links -->
                             @guest
-                                <li class="nav-item">
+                                <p class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                <li class="nav-item">
+                                </p>
+                                <p class="nav-item">
                                     @if (Route::has('register'))
                                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     @endif
-                                </li>
+                                </p>
                             @else
                                     <li class="navbar-item has-dropdown " id="nav_menu">
                                         <a id="navbarDropdown" class="navbar-link" role="button" data-toggle="dropdown" v-pre>

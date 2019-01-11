@@ -20,7 +20,9 @@
                     @else
                         Add new task!
                     @endguest
-                    
+                    <figure class="image is-3by1">
+                        <img src="{{ asset('img/quote2.jpg') }}">
+                    </figure>
                 </div>
             </div>
         </div>

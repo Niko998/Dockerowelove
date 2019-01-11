@@ -21,7 +21,15 @@ Your tasks
                 @endforeach
 
 
+                
+
             </ol>
+            <hr>
+            <hr>
+            <hr>
+            <figure class="image is-3by1">
+                <img src="{{ asset('img/quote1.jpg') }}">
+            </figure>
         </div>
     
 @endsection

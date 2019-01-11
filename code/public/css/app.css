@@ -11173,7 +11173,7 @@ label.panel-block:hover {
 }
 
 .navbar {
-  background-color: #6cb2eb;
+  background-color: #6babed;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -11181,11 +11181,16 @@ label.panel-block:hover {
   float: right;
 }
 
-#navTitle {
-  color: white;
-  font-size: 22px;
+#navTitle,
+#navTitle:hover {
+  color: #363636;
+  font-size: 30px;
   font-weight: bold;
   font-family: "Lucida Console";
+}
+
+#navTitle:hover {
+  font-size: 30.5px;
 }
 
 .py-4 {
@@ -11200,5 +11205,24 @@ label.panel-block:hover {
 
 .footer {
   padding: 1.5rem 1.5rem 1.5rem;
+}
+
+.deleted,
+.added {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.added {
+  color: green;
+}
+
+.deleted {
+  color: orange;
+}
+
+.nav-item {
+  padding: 10px;
+  color: #363636;
 }
 

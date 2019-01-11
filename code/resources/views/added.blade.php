@@ -1,6 +1,8 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<div class="alert alert-success" role="alert">
+<?php header( "refresh:2;url=/home" ); ?>
+<div class="added">
 Task zostal dodany prawidlowo! <br>
-<a class="btn btn-success" href="/home" role="button">Powrot do strony glownej</a>
 </div>
+<a class="btn btn-success" href="/home" role="button">Powrot do strony glownej</a>
+
 

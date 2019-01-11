@@ -12,7 +12,7 @@
 @import '~bulma/bulma.sass';
 
 .navbar {
-  background-color: $info;
+  background-color: #6babed;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -21,10 +21,15 @@
 }
 
 #navTitle {
-  color: white;
-  font-size: 22px;
+  color: $dark;
+  font-size: 30px;
   font-weight: bold;
   font-family: "Lucida Console";
+}
+
+#navTitle:hover {
+  @extend #navTitle;
+  font-size: 30.5px;
 }
 
 .py-4 {
@@ -39,4 +44,24 @@
 
 .footer {
   padding: 1.5rem 1.5rem 1.5rem; 	
+}
+
+%taskOperation {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.added {
+  @extend %taskOperation;
+  color: green;
+}
+
+.deleted {
+  @extend %taskOperation;
+  color: orange;
+}
+
+.nav-item {
+  padding: 10px;
+  color: $dark;
 }

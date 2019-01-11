@@ -16,6 +16,7 @@ Route::get('/addtask','TodosController@addtask');
 Route::post('/added','TodosController@added');
 Route::get('/yourtasks','TodosController@yourtasks');
 Route::get('/yoursubtasks/{id}','TodosController@yoursubtasks');
+Route::post('/deleted','TodosController@deleted');
 
 
 Auth::routes();

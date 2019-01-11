@@ -8,7 +8,7 @@ Your tasks
 <div class="container">
     <div>
         <p style="font: 32px Arial;">
-        <?php echo $maintask[0]->description;?>
+        <?php echo $maintask[0]->description." do ".$maintask[0]->final_date; ?>
         </p> 
     </div>
     
@@ -34,5 +34,13 @@ Your tasks
                     <input type="submit" value="Dodaj subtask" class="btn btn-success mt-5"/>             
                 </form>
     </ol>
+
+    <hr>
+    <hr>
+    <form action="/deleted" method="post">
+        @csrf
+        <input name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
+        <input type="submit" value="Usun task">
+    </form>
 </div>
 @endsection

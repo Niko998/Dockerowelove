@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class Todo extends Model
@@ -45,8 +46,12 @@ class Todo extends Model
         else {
             $parentTask = Todo::where('id',$parent)->get();
             return $parentTask[0]->final_date;
-        }
-        
-        
+        }    
+    }
+
+    public static function deleteTask($id)
+    {
+        DB::table('todos')->where('id',$id)->delete();
+        DB::table('todos')->where('parent_id',$id)->delete();
     }
 }
