@@ -1,29 +1,30 @@
-
-Poczytac
-https://laravel.com/docs/5.7/database
-https://laravel.com/docs/5.7/eloquent
-https://laravel.com/docs/5.7/validation#form-request-validation
-
-Co dalej: ->podtaski, zeby data byla dobra - done
-            ->wyglad
-                ->ogarnac jak dziala css
-                ->stworzyc plik css
-            ->czasowe przeniesienie do home po added - JS
-            ->rozne home dla zalogowanego i goscia
+Co dalej:   ->rozne home dla zalogowanego i goscia
                 ->Troche bardziej rozbudowane 
             ->interakcje z taskami
-                ->dodac usuwanie taskow
+                ->dodac odznaczanie zrobionych taskow
+                ->error handle w dodawaniu taskow
 
 
 
-
-
-
-jak wyszukac htmlowy element w JS
-
-usuniecie bootstrapa z navbara
-dodanie wlasnego skryptu
 
 
 Kiedys:
     Dodawanie plikow do taskow
+
+
+Poczytac:
+    promises
+    fetch()
+
+Rest API -. 
+JSON - - -|
+AJAX - - -|
+         \./
+         VUE
+
+quotes design:
+    font: URW Gothic L Semi-Bold Oblique
+    font-size: 90
+    place: at 3600x1200 - 400x300-3200x600
+    text-align: center
+    Opacity: 35/40%

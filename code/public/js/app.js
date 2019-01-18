@@ -47664,6 +47664,14 @@ function hiding(e) {
   }
 }
 
+function getting() {
+  fetch("/api/youtasks").then(function (response) {
+    return json();
+  }).then(function (body) {
+    return console.log(body);
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

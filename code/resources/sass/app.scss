@@ -43,6 +43,7 @@
 }
 
 .footer {
+  font-family: "Lucida Console";
   padding: 1.5rem 1.5rem 1.5rem; 	
 }
 
@@ -64,4 +65,10 @@
 .nav-item {
   padding: 10px;
   color: $dark;
+}
+
+.card-body {
+  @extend %taskOperation;
+  text-align: center;
+  color: #6babed;
 }

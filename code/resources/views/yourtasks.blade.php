@@ -16,6 +16,7 @@ Your tasks
 
                         <a href="/yoursubtasks/{{ $key->id }}" class="tasks">
                         Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
+                        </a>
                         <br>
                     </li>
                 @endforeach
@@ -28,7 +29,7 @@ Your tasks
             <hr>
             <hr>
             <figure class="image is-3by1">
-                <img src="{{ asset('img/quote1.jpg') }}">
+                <img class="is-rounded" src="{{ asset('img/quote1.jpg') }}">
             </figure>
         </div>
     

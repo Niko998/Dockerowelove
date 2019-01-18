@@ -26,7 +26,7 @@ Your tasks
             <br>
             <br>
     Dodaj nowy podtask
-            <form action="/added" method="post">
+            <form action="/yourtasks" method="post">
                     @csrf
                     Chce: <input name="task" type="text" placeholder="Wpisz cel" class="input is-rounded"/><br>
                     Kiedy: <input name="final_date" type="date" value="Wpisz date" class="input is-rounded"/> <br>
@@ -37,7 +37,7 @@ Your tasks
 
     <hr>
     <hr>
-    <form action="/deleted" method="post">
+    <form action="/yourtasks" method="post">
         @csrf
         <input name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
         <input type="submit" value="Usun task">

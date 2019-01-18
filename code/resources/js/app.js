@@ -23,9 +23,8 @@ const app = new Vue({
 
 var myElement = document.getElementById("navbarDropdown");
 var myTrueElement = document.getElementById("nav_menu");
+
 myElement.addEventListener("click",showing, false)
-
-
 document.addEventListener("click",hiding,false)
 
 function showing(e){
@@ -38,5 +37,10 @@ function hiding(e){
         myTrueElement.classList.remove("is-active");
       }
     
+}
+
+function getting(){
+    fetch("/api/youtasks").then(response => json())
+        .then(body => console.log(body))
 }
 

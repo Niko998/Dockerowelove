@@ -13,7 +13,7 @@ Addtask
             <span class="date badge badge-warning"> <?php echo date('d-m-Y'); ?> </span>
        </div>
         <div class="square second-square">
-            <form action="/added" method="post">
+            <form action="/yourtasks" method="post">
                 @csrf
                 Chce: <input name="task" type="text" placeholder="Wpisz cel" class="input is-large is-rounded"/><br>
                 <?php //$errors = $validator->errors();
@@ -23,6 +23,10 @@ Addtask
                 <input type="submit" value="Dodaj cel" class="btn btn-success mt-5"/>             
             </form>
         </div>
+
+        <figure class="image is-3by1">
+                <img class="is-rounded" src="{{ asset('img/quote3.jpg') }}">
+        </figure>
                 
     </div>
 </div>

@@ -44,4 +44,16 @@ class TodosController extends Controller
         Todo::deleteTask($request->input("id"));
         return view('deleted');
     }
+
+    public function apiget()
+    {
+        $tasks = Todo::readTasks();
+        return response()->json($tasks);
+    }
+
+    public function apiresponseget()
+    {
+        getting();
+
+    }
 }

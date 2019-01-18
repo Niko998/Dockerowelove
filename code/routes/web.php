@@ -13,10 +13,12 @@
 Route::get('/','PagesController@home');
 Route::get('/whatisit','PagesController@whatisit');
 Route::get('/addtask','TodosController@addtask');
-Route::post('/added','TodosController@added');
+Route::post('/yourtasks','TodosController@added');
 Route::get('/yourtasks','TodosController@yourtasks');
 Route::get('/yoursubtasks/{id}','TodosController@yoursubtasks');
-Route::post('/deleted','TodosController@deleted');
+Route::post('/yourtasks','TodosController@deleted');
+Route::get('/api/yourtasks','TodosController@apiget');
+Route::get('/api/yourtasksresp','TodosController@apiresponseget');
 
 
 Auth::routes();
