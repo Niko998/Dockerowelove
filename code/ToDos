@@ -22,6 +22,16 @@ AJAX - - -|
          \./
          VUE
 
+
+Dodawanie i usowanie taskow z alertem zamiast przekierowania
+    prefDefault()
+    fetch() z wartosciami inputow do routera 
+    kontroler zwraca JSON
+    .then zwraca czy sie udalo
+
+
+
+
 quotes design:
     font: URW Gothic L Semi-Bold Oblique
     font-size: 90

@@ -47650,8 +47650,11 @@ var app = new Vue({
 });
 var myElement = document.getElementById("navbarDropdown");
 var myTrueElement = document.getElementById("nav_menu");
+var jsonButton = document.getElementById("responder");
+var divJsonButton = document.getElementById("jsonData");
 myElement.addEventListener("click", showing, false);
 document.addEventListener("click", hiding, false);
+jsonButton.addEventListener("click", hello, false);
 
 function showing(e) {
   e.preventDefault();
@@ -47664,12 +47667,25 @@ function hiding(e) {
   }
 }
 
-function getting() {
-  fetch("/api/youtasks").then(function (response) {
-    return json();
-  }).then(function (body) {
-    return console.log(body);
-  });
+function hello(e) {
+  e.preventDefault();
+  var request = new XMLHttpRequest();
+  request.open('GET', '/api/yourtasks', true);
+
+  request.onload = function () {
+    // Convert JSON data to an object
+    var users = JSON.parse(this.response);
+    var output = '';
+
+    for (var i = 0; i < users.length; i++) {
+      output += '<li>' + users[i].description + ' is ' + users[i].final_date + ' years old.';
+      '</li>';
+    }
+
+    document.getElementById('users').innerHTML = output;
+  };
+
+  request.send();
 }
 
 /***/ }),

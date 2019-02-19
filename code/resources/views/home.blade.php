@@ -15,7 +15,12 @@
                         </div>
                     @endif
                     @guest
-                        Log in or register!
+                    <p >
+                                    <a href="{{ route('login') }}">{{ __('Log in') }}</a> or
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}">{{ __('Register') }}</a>!
+                                    @endif
+                    </p>
                     @else
                     Plan your future! Add new task! Reach your goals!
                     @endguest

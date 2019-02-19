@@ -53,7 +53,6 @@ class TodosController extends Controller
 
     public function apiresponseget()
     {
-        getting();
-
+        return view('yourtasksresp');
     }
 }
