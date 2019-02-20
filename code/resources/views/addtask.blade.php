@@ -13,13 +13,13 @@ Addtask
             <span class="date badge badge-warning"> <?php echo date('d-m-Y'); ?> </span>
        </div>
         <div class="square second-square">
-            <form action="/yourtasks" method="post">
-                @csrf
-                Chce: <input name="task" type="text" placeholder="Wpisz cel" class="input is-large is-rounded"/><br>
-                
-                Kiedy: <input name="final_date" type="date" value="Wpisz date" class="input is-large is-rounded"/> <br>
-                <input name="parent_id" type="hidden" value="<?php echo 0 ?>">
-                <input type="submit" value="Dodaj cel" class="btn btn-success mt-5"/>             
+            
+            <form action="/yourtasks"  method="post" id="inputForm">
+                @csrf 
+                Chce: <input name="task" id="inputTask" type="text" placeholder="Wpisz cel" class="input is-large is-rounded"/><br>
+                Kiedy: <input name="final_date" id="inputDate" type="date" class="input is-large is-rounded"/><br>
+                <input name="parent_id" id="inputParent" type="hidden" value="<?php echo 0 ?>">
+                <button type="submit" class="button" id="inputSubmit">Add Task</button>
             </form>
         </div>
 

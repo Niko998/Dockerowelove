@@ -12,6 +12,15 @@ Kiedys:
     Dodawanie plikow do taskow
 
 
+
+Nie dziala: 
+    -usowanie taskow
+    -poprawne date validation
+    -
+
+
+
+
 Poczytac:
     promises
     fetch()
@@ -24,7 +33,7 @@ AJAX - - -|
 
 
 Dodawanie i usowanie taskow z alertem zamiast przekierowania
-    prefDefault()
+    prefDefault() - jest
     fetch() z wartosciami inputow do routera 
     kontroler zwraca JSON
     .then zwraca czy sie udalo

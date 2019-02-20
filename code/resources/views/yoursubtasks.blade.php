@@ -37,7 +37,7 @@ Your tasks
 
     <hr>
     <hr>
-    <form action="/yourtasks" method="post">
+    <form action="/yourtasks" method="delete">
         @csrf
         <input name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
         <input type="submit" value="Usun task">
