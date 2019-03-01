@@ -24,19 +24,19 @@ const app = new Vue({
 
 var myElement = document.getElementById("navbarDropdown");
 var myTrueElement = document.getElementById("nav_menu");
-var jsonButton = document.getElementById("responder");
+//let jsonButton = document.getElementById("responder");
 var divJsonButton = document.getElementById("jsonData");
 var inpForm = document.getElementById("inputForm");
 var inpButton = document.getElementById("inputSubmit");
 
 
 
-
 myElement.addEventListener("click",showing, false);
 document.addEventListener("click",hiding,false);
-jsonButton.addEventListener("click",hello,false);
-inpButton.addEventListener("submit",addTask,false);
-inpForm.addEventListener("submit",addTask,false);
+//jsonButton.addEventListener("click",hello,false);
+inpButton.addEventListener("click",addTask,false);
+//inpForm.addEventListener("submit",addTask,false);
+
 
 
 function showing(e){
@@ -69,10 +69,15 @@ function hello(e){
   request.send();
 }
 
+
+
 function addTask(e){
+  e.stopImmediatePropagation();
   e.preventDefault();
   e.stopPropagation();
   
+  let token = document.head.querySelector('meta[name="csrf-token"]');
+  console.log(token);
   var inpText = document.getElementById("inputTask").value;
   var inpDate = document.getElementById("inputDate").value;
   var inpPar = document.getElementById("inputParent").value;
@@ -81,12 +86,25 @@ function addTask(e){
   taskData.append('parent_id',inpPar);
   taskData.append('task', inpText);
   taskData.append('final_date',inpDate);
-  fetch("/yourtasks",{
-    method: 'post',
-    body: taskData
-  })
-  .then(alert("siemanko"))
-  .catch(alert("nie siemanko"))
+  
+  const post = {
+    parent_id: inpPar,
+    task: inpText,
+    final_date: inpDate
+  }
+  console.log(post);
+  fetch("/api/dupa",{
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: {
+      'X-CSRF-TOKEN': token.content,
+      'Content-Type': "application/json",
+      accept: "application/json"
+    }
+    
+  }).then(res => res.text())
+  .then(text=>console.log(text))
+  .catch(console.log)
   
   //Robie to w czy poza <form action...?
   //Jakos wyslac response do kontrollera???
@@ -96,8 +114,6 @@ function addTask(e){
   //Obsluge promisa pisze w addTask(e), czy w osobnych funkcjach?
   
   //addtask.blade.php >>> addTask(e) >>> TodosContoller@added >>> promis >>> addtask.blade.php
-
-  //Kiedy najlepiej uzywac var, a kiedy let?
   
 
 }

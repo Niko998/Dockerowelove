@@ -21,6 +21,7 @@ Addtask
                 <input name="parent_id" id="inputParent" type="hidden" value="<?php echo 0 ?>">
                 <button type="submit" class="button" id="inputSubmit">Add Task</button>
             </form>
+            
         </div>
 
         <figure class="image is-3by1">

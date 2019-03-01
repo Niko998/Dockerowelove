@@ -14,7 +14,7 @@ class Todo extends Model
         $task = new Todo;
         $task->description = $description;
         $task->final_date = $final_date;
-        $task->user_id = User::userID();
+        $task->user_id = 3;
         $task->parent_id = $parent_id;
         $task->save();
         

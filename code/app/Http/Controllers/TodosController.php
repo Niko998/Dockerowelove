@@ -26,6 +26,18 @@ class TodosController extends Controller
         return view('added');
     }
 
+    public function addedJson(Request $request) 
+    {
+        $parDate = Todo::dateValidation($request->input("parent_id"));
+        $request->validate([
+            'task' => "required|filled",
+            'final_date' => "date|after:today|before:$parDate",
+            ]);
+        
+        Todo::addToDB($request->input("task"),$request->input("final_date"),$request->input("parent_id")); 
+        return response()->json([]);
+    }
+
     public function yourtasks()
     {
        $tasks =  Todo::readTasks();
