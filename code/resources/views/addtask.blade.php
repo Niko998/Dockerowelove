@@ -9,9 +9,14 @@ Addtask
 
     <div id="container" class="container pt-5">
     <div class="rectangle">
+
+        <div id="alertok" class="is-invisible">
+            <h4 id="progressMessage"></h4>
+       </div>
         <div class="square">
             <span class="date badge badge-warning"> <?php echo date('d-m-Y'); ?> </span>
        </div>
+       
         <div class="square second-square">
             
             <form action="/yourtasks"  method="post" id="inputForm">

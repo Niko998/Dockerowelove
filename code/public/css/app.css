@@ -11233,3 +11233,7 @@ label.panel-block:hover {
   color: #6babed;
 }
 
+.subTasksButtons {
+  padding-left: 5em;
+}
+

@@ -1,5 +1,5 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<?php header( "refresh:2;url=/home" ); ?>
+<?php header( "refresh:1.5;url=/home" ); ?>
 <div class="deleted">
 Task zostal usuniety prawidlowo! <br>
 </div>

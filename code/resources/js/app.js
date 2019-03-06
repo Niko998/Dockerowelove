@@ -28,14 +28,19 @@ var myTrueElement = document.getElementById("nav_menu");
 var divJsonButton = document.getElementById("jsonData");
 var inpForm = document.getElementById("inputForm");
 var inpButton = document.getElementById("inputSubmit");
+var subInpButton = document.getElementById("subInputSubmit");
+
 
 
 
 myElement.addEventListener("click",showing, false);
 document.addEventListener("click",hiding,false);
 //jsonButton.addEventListener("click",hello,false);
-inpButton.addEventListener("click",addTask,false);
+if (inpButton){
+  inpButton.addEventListener("click",addTask,false);
+}
 //inpForm.addEventListener("submit",addTask,false);
+subInpButton.addEventListener("click",addTask,false);
 
 
 
@@ -92,9 +97,9 @@ function addTask(e){
     task: inpText,
     final_date: inpDate
   }
-  console.log(post);
-  fetch("/api/dupa",{
-    method: 'POST',
+
+  fetch("/yourtasks",{
+    method: 'POST', 
     body: JSON.stringify(post),
     headers: {
       'X-CSRF-TOKEN': token.content,
@@ -103,18 +108,29 @@ function addTask(e){
     }
     
   }).then(res => res.text())
-  .then(text=>console.log(text))
-  .catch(console.log)
+  .then(function(value){
+          console.log(value);
+          showAlert(1)
+        })
+  .catch(function(value){
+    showAlert(0)
+  })
   
-  //Robie to w czy poza <form action...?
-  //Jakos wyslac response do kontrollera???
-  //Czy robie to poprzez $_POST?
-  //poprzez return? Tylko wtedy jak dostac sie do added?
-  //Kontroller ma zwrocic JSON do bazy danych, czy do addtask.blade.php?
-  //Obsluge promisa pisze w addTask(e), czy w osobnych funkcjach?
-  
-  //addtask.blade.php >>> addTask(e) >>> TodosContoller@added >>> promis >>> addtask.blade.php
-  
-
 }
+//show alert after adding new task
+function showAlert(){
+  let message = document.getElementById("progressMessage");
+  let alertClass = document.getElementById("alertok");
+  if(arguments[0]){
+    
+    message.textContent = "Task zostal dodany prawidlowo!";
+    alertClass.style.color = "green";
+    alertClass.classList.remove('is-invisible');
 
+  }
+  else{
+    message.textContent = "Task nie zostal dodany!";
+    alertClass.style.color = "red";
+    alertClass.classList.remove('is-invisible');
+  }
+}

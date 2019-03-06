@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 
 
 
-Route::post('/dupa','TodosController@addedJson');
 
-Route::group(['middleware' => ['auth:api']], function () {
-    
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/yourtasks','TodosController@addedJson');
 });

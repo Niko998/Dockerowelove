@@ -16,7 +16,7 @@ Route::get('/addtask','TodosController@addtask');
 Route::post('/yourtasks','TodosController@added');
 Route::get('/yourtasks','TodosController@yourtasks');
 Route::get('/yoursubtasks/{id}','TodosController@yoursubtasks');
-Route::delete('/yourtasks','TodosController@deleted');
+Route::post('/deleted','TodosController@deleted');
 Route::get('/api/yourtasks','TodosController@apiget');
 Route::get('/api/yourtasksresp','TodosController@apiresponseget');
 

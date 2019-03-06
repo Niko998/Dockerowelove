@@ -14,20 +14,15 @@ class Todo extends Model
         $task = new Todo;
         $task->description = $description;
         $task->final_date = $final_date;
-        $task->user_id = 3;
+        $task->user_id = \Auth::user()->id;
         $task->parent_id = $parent_id;
         $task->save();
-        
-    
-        
     }
 
     public static function readTasks(){
        return Todo::where([['user_id', User::userID()],['parent_id',0]])->get();
     }
    
-
-
     public static function readSubTasks($id)
     {
         return Todo::where('parent_id',$id)->get();
