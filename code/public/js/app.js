@@ -47655,6 +47655,7 @@ var divJsonButton = document.getElementById("jsonData");
 var inpForm = document.getElementById("inputForm");
 var inpButton = document.getElementById("inputSubmit");
 var subInpButton = document.getElementById("subInputSubmit");
+var subDelButton = document.getElementsByClassName("subTasksButtons");
 myElement.addEventListener("click", showing, false);
 document.addEventListener("click", hiding, false); //jsonButton.addEventListener("click",hello,false);
 
@@ -47665,6 +47666,10 @@ if (inpButton) {
 
 subInpButton.addEventListener("click", addTask, false);
 
+for (i = 0; i < subDelButton.length; i++) {
+  subDelButton[i].addEventListener("click", deleteTask, false);
+}
+
 function showing(e) {
   e.preventDefault();
   myTrueElement.classList.add("is-active");
@@ -47674,7 +47679,8 @@ function hiding(e) {
   if (e.target.closest('#nav_menu') === null) {
     myTrueElement.classList.remove("is-active");
   }
-}
+} //?????
+
 
 function hello(e) {
   e.preventDefault();
@@ -47702,7 +47708,6 @@ function addTask(e) {
   e.preventDefault();
   e.stopPropagation();
   var token = document.head.querySelector('meta[name="csrf-token"]');
-  console.log(token);
   var inpText = document.getElementById("inputTask").value;
   var inpDate = document.getElementById("inputDate").value;
   var inpPar = document.getElementById("inputParent").value;
@@ -47726,7 +47731,6 @@ function addTask(e) {
   }).then(function (res) {
     return res.text();
   }).then(function (value) {
-    console.log(value);
     showAlert(1);
   }).catch(function (value) {
     showAlert(0);
@@ -47738,15 +47742,59 @@ function showAlert() {
   var message = document.getElementById("progressMessage");
   var alertClass = document.getElementById("alertok");
 
-  if (arguments[0]) {
-    message.textContent = "Task zostal dodany prawidlowo!";
-    alertClass.style.color = "green";
-    alertClass.classList.remove('is-invisible');
-  } else {
-    message.textContent = "Task nie zostal dodany!";
-    alertClass.style.color = "red";
-    alertClass.classList.remove('is-invisible');
+  switch (arguments[0]) {
+    case 1:
+      message.textContent = "Task zostal dodany prawidlowo!";
+      alertClass.style.color = "green";
+      break;
+
+    case 0:
+      message.textContent = "Task nie zostal dodany!";
+      alertClass.style.color = "red";
+      break;
+
+    case 2:
+      message.textContent = "Subtask zostal usuniety prawidlowo!";
+      alertClass.style.color = "green";
+      break;
+
+    case 3:
+      message.textContent = "Subtask zostal usuniety prawidlowo!";
+      alertClass.style.color = "red";
+      break;
   }
+
+  alertClass.classList.remove('is-invisible');
+}
+
+function deleteTask(e) {
+  var token = document.head.querySelector('meta[name="csrf-token"]');
+  var taskData = new FormData();
+  taskData.append("id", e.target.id);
+  var post = {
+    id: e.target.id
+  };
+  fetch("/deleted", {
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: {
+      'X-CSRF-TOKEN': token.content,
+      'Content-Type': "application/json",
+      accept: "application/json"
+    }
+  }).then(function (value) {
+    location.reload(true);
+    showAlert(2);
+  }).catch(function (value) {
+    location.reload();
+    showAlert(3);
+  });
+}
+
+function sleep(ms) {
+  return new Promise(function (resolve) {
+    return setTimeout(resolve, ms);
+  });
 }
 
 /***/ }),

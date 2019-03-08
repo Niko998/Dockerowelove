@@ -21,9 +21,14 @@ Your tasks
 
         @foreach ($subtasks as $key)
             <li>
-                Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
-                <button type="button" class="subTasksButtons" id="<?php echo $loop->index ?>">
-                <br>
+                <div class="columns">
+                    <div class="column is-4">
+                    Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
+                    </div>
+                    <div class="column">
+                    <button type="button" class="subTasksButtons" id= {{ $key->id}}>X</button>
+                    </div>
+                </div>
             </li>
             @endforeach
             <br>
