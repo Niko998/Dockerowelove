@@ -24,28 +24,33 @@ const app = new Vue({
 
 var myElement = document.getElementById("navbarDropdown");
 var myTrueElement = document.getElementById("nav_menu");
-//let jsonButton = document.getElementById("responder");
+let jsonButton = document.getElementById("responder");
 var divJsonButton = document.getElementById("jsonData");
 var inpForm = document.getElementById("inputForm");
 var inpButton = document.getElementById("inputSubmit");
 var subInpButton = document.getElementById("subInputSubmit");
 var subDelButton = document.getElementsByClassName("subTasksButtons");
+var taskSite = document.getElementById("taskList");
 
 
 
 
 myElement.addEventListener("click",showing, false);
 document.addEventListener("click",hiding,false);
-//jsonButton.addEventListener("click",hello,false);
+if(jsonButton){
+  jsonButton.addEventListener("click",hello,false);
+}
 if (inpButton){
   inpButton.addEventListener("click",addTask,false);
 }
 //inpForm.addEventListener("submit",addTask,false);
-subInpButton.addEventListener("click",addTask,false);
+if (subInpButton){
+  subInpButton.addEventListener("click",addTask,false);
+}
 for(i=0; i <subDelButton.length;i++){
   subDelButton[i].addEventListener("click",deleteTask,false);
 }
-
+taskSite.addEventListener("load",SPAtaskList,false);
 
 function showing(e){
     e.preventDefault();
@@ -125,19 +130,19 @@ function showAlert(){
   let alertClass = document.getElementById("alertok");
   switch(arguments[0]) {
     case 1:
-      message.textContent = "Task zostal dodany prawidlowo!";
+      message.textContent = "Task zostal dodany prawidlowo! Odswiez strone.";
       alertClass.style.color = "green";
       break;
     case 0:
-      message.textContent = "Task nie zostal dodany!";
+      message.textContent = "Task nie zostal dodany! Odswiez strone.";
       alertClass.style.color = "red";
       break;
     case 2:
-      message.textContent = "Subtask zostal usuniety prawidlowo!";
+      message.textContent = "Subtask zostal usuniety prawidlowo! Odswiez strone.";
       alertClass.style.color = "green";
       break;
     case 3:
-      message.textContent = "Subtask zostal usuniety prawidlowo!";
+      message.textContent = "Subtask zostal usuniety prawidlowo! Odswiez strone.";
       alertClass.style.color = "red";
       break;
   }
@@ -158,17 +163,28 @@ function deleteTask(e){
       accept: "application/json"
     }
   }).then(function(value){
-    location.reload(true);
     showAlert(2);
   })
   .catch(function(value){
-    location.reload();
     showAlert(3);
   })
 
 }
 
+function SPAtaskList(e){
+    e.preventDefault();
+    let request = new XMLHttpRequest();
+    request.open('GET', '/yourtasks', true);
+    request.onload = function () {
+      // Convert JSON data to an object
+      let tasks = JSON.parse(this.response);
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+      let output = '';
+      for (var i = 0; i < tasks.length; i++) {
+        output += '<li>' + tasks[i].description + tasks[i].final_date; '</li>'
+      }
+      document.getElementById('taskList').innerHTML = output;
+    }
+
+  request.send();
 }

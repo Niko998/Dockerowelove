@@ -67,4 +67,15 @@ class TodosController extends Controller
     {
         return view('yourtasksresp');
     }
+
+    public function SPAtasks(Request $request)
+    {
+        $tasks =  Todo::readTasks();
+       return response()->json($tasks);
+    }
+
+    public function SPAtasksBlade()
+    {
+        return view('tasks');
+    }
 }

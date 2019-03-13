@@ -29,7 +29,7 @@
 
 #navTitle:hover {
   @extend #navTitle;
-  font-size: 30.5px;
+  font-size: 30.15px;
 }
 
 .py-4 {
@@ -71,8 +71,4 @@
   @extend %taskOperation;
   text-align: center;
   color: #6babed;
-}
-
-.subTasksButtons {
-
 }
