@@ -22,6 +22,8 @@ const app = new Vue({
     el: '#app'
 });
 
+
+
 var myElement = document.getElementById("navbarDropdown");
 var myTrueElement = document.getElementById("nav_menu");
 let jsonButton = document.getElementById("responder");
@@ -31,8 +33,6 @@ var inpButton = document.getElementById("inputSubmit");
 var subInpButton = document.getElementById("subInputSubmit");
 var subDelButton = document.getElementsByClassName("subTasksButtons");
 var taskSite = document.getElementById("taskList");
-
-
 
 
 myElement.addEventListener("click",showing, false);
@@ -50,7 +50,7 @@ if (subInpButton){
 for(i=0; i <subDelButton.length;i++){
   subDelButton[i].addEventListener("click",deleteTask,false);
 }
-taskSite.addEventListener("load",SPAtaskList,false);
+
 
 function showing(e){
     e.preventDefault();
@@ -169,22 +169,4 @@ function deleteTask(e){
     showAlert(3);
   })
 
-}
-
-function SPAtaskList(e){
-    e.preventDefault();
-    let request = new XMLHttpRequest();
-    request.open('GET', '/yourtasks', true);
-    request.onload = function () {
-      // Convert JSON data to an object
-      let tasks = JSON.parse(this.response);
-
-      let output = '';
-      for (var i = 0; i < tasks.length; i++) {
-        output += '<li>' + tasks[i].description + tasks[i].final_date; '</li>'
-      }
-      document.getElementById('taskList').innerHTML = output;
-    }
-
-  request.send();
 }

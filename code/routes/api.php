@@ -19,5 +19,5 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/yourtasks','TodosController@addedJson');
-    Route::get('/tasks','TodosContoller@SPAtasks');
+    Route::get('/tasks','TodosController@SPAtasks');
 });

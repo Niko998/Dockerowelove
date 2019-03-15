@@ -47677,8 +47677,6 @@ for (i = 0; i < subDelButton.length; i++) {
   subDelButton[i].addEventListener("click", deleteTask, false);
 }
 
-taskSite.addEventListener("load", SPAtaskList, false);
-
 function showing(e) {
   e.preventDefault();
   myTrueElement.classList.add("is-active");
@@ -47796,27 +47794,6 @@ function deleteTask(e) {
   }).catch(function (value) {
     showAlert(3);
   });
-}
-
-function SPAtaskList(e) {
-  e.preventDefault();
-  var request = new XMLHttpRequest();
-  request.open('GET', '/yourtasks', true);
-
-  request.onload = function () {
-    // Convert JSON data to an object
-    var tasks = JSON.parse(this.response);
-    var output = '';
-
-    for (var i = 0; i < tasks.length; i++) {
-      output += '<li>' + tasks[i].description + tasks[i].final_date;
-      '</li>';
-    }
-
-    document.getElementById('taskList').innerHTML = output;
-  };
-
-  request.send();
 }
 
 /***/ }),

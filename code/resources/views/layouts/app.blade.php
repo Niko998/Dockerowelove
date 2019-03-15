@@ -10,7 +10,7 @@
     <title> MySuperTasker </title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+   
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -83,6 +83,10 @@
                 </p>
             </div>
         </footer>
+    
     </div>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    @yield('scripts')
 </body>
+
 </html>
