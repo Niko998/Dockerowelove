@@ -17,8 +17,13 @@
 }
 
 #nav_menu {
-  float: right; 
+  float: right;
 }
+
+#navbarDropdown:hover {
+  background-color: #79b3ee;
+}
+
 
 #navTitle {
   color: $dark;
@@ -33,9 +38,15 @@
 }
 
 .py-4 {
-  background-color: $white-ter;
+  background-color: $grey-lighter;
   height: 750px;
 }
+
+#navbarDropdown {
+  color: $grey-lighter
+}
+
+
 
 .tasks{
   color: black;
@@ -71,4 +82,16 @@
   @extend %taskOperation;
   text-align: center;
   color: #6babed;
+}
+
+#subForm {
+  margin-top: 30px;
+}
+
+.Pictures {
+  padding-top: 40px;
+}
+
+#homeBox {
+  box-shadow: 5px 5px 3px grey;
 }

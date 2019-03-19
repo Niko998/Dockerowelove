@@ -25,12 +25,11 @@ Your tasks
                 
 
             </ol>
-            <hr>
-            <hr>
-            <hr>
-            <figure class="image is-3by1">
-                <img class="is-rounded" src="{{ asset('img/quote1.jpg') }}">
-            </figure>
+            <div class="Pictures">
+                <figure class="image is-3by1">
+                    <img class="is-rounded" src="{{ asset('img/quote1.jpg') }}">
+                </figure>
+            </div>
         </div>
     
 @endsection

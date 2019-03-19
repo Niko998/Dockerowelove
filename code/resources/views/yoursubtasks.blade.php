@@ -42,13 +42,12 @@ Your tasks
                     <input type="submit" value="Dodaj subtask" class="btn btn-success mt-5" id="subInputSubmit"/>             
                 </form>
     </ol>
-
-    <hr>
-    <hr>
-    <form action="/deleted" method="post">
-        @csrf
-        <input name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
-        <input type="submit" value="Usun task">
-    </form>
+    <div id="subForm">
+        <form action="/deleted" method="post">
+            @csrf
+            <input name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
+            <input type="submit" value="Usun task">
+        </form>
+    </div>
 </div>
 @endsection

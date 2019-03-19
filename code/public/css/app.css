@@ -11181,6 +11181,10 @@ label.panel-block:hover {
   float: right;
 }
 
+#navbarDropdown:hover {
+  background-color: #79b3ee;
+}
+
 #navTitle,
 #navTitle:hover {
   color: #363636;
@@ -11194,8 +11198,12 @@ label.panel-block:hover {
 }
 
 .py-4 {
-  background-color: whitesmoke;
+  background-color: #dbdbdb;
   height: 750px;
+}
+
+#navbarDropdown {
+  color: #dbdbdb;
 }
 
 .tasks {
@@ -11231,5 +11239,17 @@ label.panel-block:hover {
 .card-body {
   text-align: center;
   color: #6babed;
+}
+
+#subForm {
+  margin-top: 30px;
+}
+
+.Pictures {
+  padding-top: 40px;
+}
+
+#homeBox {
+  box-shadow: 5px 5px 3px grey;
 }
 

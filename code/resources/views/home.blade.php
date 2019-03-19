@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container" id="homeBox">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -24,9 +24,11 @@
                     @else
                     Plan your future! Add new task! Reach your goals!
                     @endguest
-                    <figure class="image is-3by1">
-                        <img  src="{{ asset('img/quote2.jpg') }}">
-                    </figure>
+                    <div class="Pictures">
+                        <figure class="image is-3by1">
+                            <img  src="{{ asset('img/quote2.jpg') }}">
+                        </figure>
+                    </div>
                 </div>
             </div>
         </div>

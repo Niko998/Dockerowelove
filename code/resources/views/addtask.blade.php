@@ -28,11 +28,11 @@ Addtask
             </form>
             
         </div>
-
-        <figure class="image is-3by1">
-                <img class="is-rounded" src="{{ asset('img/quote3.jpg') }}">
-        </figure>
-                
+        <div class="Pictures">
+            <figure class="image is-3by1">
+                    <img class="is-rounded" src="{{ asset('img/quote3.jpg') }}">
+            </figure>
+        </div>
     </div>
 </div>
 
