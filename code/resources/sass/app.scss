@@ -6,22 +6,18 @@
 @import 'variables';
 
 
-
-
+$navbar-background-color: #6babed;
+$navbar-item-hover-background-color: #79b3ee;
+$background: hsl(0, 0%, 86%);
 
 @import '~bulma/bulma.sass';
 
 .navbar {
-  background-color: #6babed;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 #nav_menu {
   float: right;
-}
-
-#navbarDropdown:hover {
-  background-color: #79b3ee;
 }
 
 
@@ -38,7 +34,7 @@
 }
 
 .py-4 {
-  background-color: $grey-lighter;
+  background-color:hsl(0, 0%, 87%);
   height: 750px;
 }
 
@@ -94,4 +90,8 @@
 
 #homeBox {
   box-shadow: 5px 5px 3px grey;
+}
+
+#tasklist {
+  padding-left: 50px;
 }

@@ -54,7 +54,7 @@
                                         </a>
                                         <div class="navbar-dropdown" id="nav_drop_menu">
                                             <a class="navbar-item" href="/addtask">Add task</a>
-                                            <a class="navbar-item" href="/yourtasks">Your Tasks</a>
+                                            <a class="navbar-item" href="/tasks">Your Tasks</a>
                                             <a class="navbar-item" href="/whatisit">What is it?</a>
                                             <hr class="navbar-divider">
                                             <a class="navbar-item" href="{{ route('logout') }}"

@@ -38,12 +38,6 @@ class TodosController extends Controller
         return response()->json([]);
     }
 
-    public function yourtasks()
-    {
-       $tasks =  Todo::readTasks();
-       return view('yourtasks', ['tasks' => $tasks]);
-    }
-
     public function yoursubtasks($id)
     {
         $subtasks = Todo::readSubTasks($id);
@@ -66,12 +60,6 @@ class TodosController extends Controller
     public function apiresponseget()
     {
         return view('yourtasksresp');
-    }
-
-    public function SPAtasks(Request $request)
-    {
-        $tasks =  Todo::readTasks();
-       return response()->json($tasks);
     }
 
     public function SPAtasksBlade()
