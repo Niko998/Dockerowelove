@@ -14,10 +14,10 @@ Addtask
 
 <form action="/yourtasks"  method="post" id="APIinputForm">
                 @csrf 
-                Chce: <input name="task" id="inputTask" type="text" placeholder="Wpisz cel" class="input is-large is-rounded"/><br>
-                Kiedy: <input name="final_date" id="inputDate" type="date" class="input is-large is-rounded"/><br>
+                Chce: <input name="task" id="inputTask" type="text" placeholder="Wpisz cel" class="input is-info is-large is-rounded"/><br>
+                Kiedy: <input name="final_date" id="inputDate" type="date" class="input is-info is-large is-rounded"/><br>
                 <input name="parent_id" id="inputParent" type="hidden" value="<?php echo 0 ?>">
-                <button type="submit" class="button" id="APIinputSubmit">Add Task</button>
+                <button type="submit" class="button is-link" id="APIinputSubmit">Add Task</button>
             </form>
 
 <div class="Pictures">

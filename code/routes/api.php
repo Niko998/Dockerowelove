@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('/yourtasks','TodosController@addedJson');
-    Route::get('/tasks','TodosController@apiget');
+    Route::post('/yourtasks','APIController@addedJson');
+    Route::get('/tasks','APIController@apiget');
+    Route::delete('/yourtasks','APIController@deletedJson');
 });

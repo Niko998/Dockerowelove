@@ -39,15 +39,19 @@ Your tasks
                     Chce: <input id="inputTask" name="task" type="text" placeholder="Wpisz cel" class="input is-rounded"/><br>
                     Kiedy: <input id="inputDate" name="final_date" type="date" class="input is-rounded"/> <br>
                     <input id="inputParent" name="parent_id" type="hidden" value="<?php echo $maintask[0]->id ?>">
-                    <input type="submit" value="Dodaj subtask" class="btn btn-success mt-5" id="subInputSubmit"/>             
+                    <input type="submit" value="Dodaj subtask" class="btn btn-success mt-5 button is-link" id="subInputSubmit"/>             
                 </form>
     </ol>
     <div id="subForm">
         <form action="/deleted" method="post">
             @csrf
-            <input name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
-            <input type="submit" value="Usun task">
+            <input id="mainTaskID"name="id" type="hidden" value="<?php echo $maintask[0]->id ?>">
+            <input type="submit" class="button is-danger"id="APIdeleteSubmit" value="Usun task">
         </form>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/task.js') }}" ></script>
 @endsection
