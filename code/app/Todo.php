@@ -18,10 +18,6 @@ class Todo extends Model
         $task->parent_id = $parent_id;
         $task->save();
     }
-
-    public static function readTasks(){
-       return Todo::where([['user_id', User::userID()],['parent_id',0]])->get();
-    }
    
     public static function readSubTasks($id)
     {
@@ -49,4 +45,14 @@ class Todo extends Model
         DB::table('todos')->where('id',$id)->delete();
         DB::table('todos')->where('parent_id',$id)->delete();
     }
+
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function subTodo()
+    {
+        return $this->hasMany(Todo::class, 'parent_id');
+    }
+
 }

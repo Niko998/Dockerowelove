@@ -11,8 +11,7 @@ class APIController extends Controller
 {
     public function apiget()
     {
-        $tasks = Todo::readTasks();
-        return response()->json($tasks);
+        return response()->json(Auth::user()->Todo);
     }
 
     public function addedJson(Request $request) 

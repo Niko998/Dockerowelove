@@ -34,4 +34,8 @@ class User extends Authenticatable
     public static function userID(){
         return Auth::user()->id;
     }
+
+    public function Todo(){
+        return $this->hasMany(Todo::class);
+    }
 }

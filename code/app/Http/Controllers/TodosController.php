@@ -32,7 +32,7 @@ class TodosController extends Controller
     {
         $subtasks = Todo::readSubTasks($id);
         $maintask = Todo::readMainTask($id);
-        return view('yoursubtasks',['subtasks' => $subtasks, 'maintask' => $maintask]);
+        return view('yoursubtasks',['subtasks' => $subtasks, 'maintask' => $maintask, 'mainTaskID'=> $id]);
     }
 
     public function deleted(Request $request)

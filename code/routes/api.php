@@ -21,4 +21,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/yourtasks','APIController@addedJson');
     Route::get('/tasks','APIController@apiget');
     Route::delete('/yourtasks','APIController@deletedJson');
+    Route::post('/yoursubtasks','APIController@addedJson');
 });

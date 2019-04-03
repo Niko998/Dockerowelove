@@ -152,15 +152,57 @@ function APIaddTask(e) {
   }).then(function (response) {
     return response.json();
   }).then(function (data) {
-    console.log(data.id[0].id); //Pobieram output
+    //Pobieram output
     //usuwam z niego ostatnie 5 znakow
     //dodaje na koncu nowy task
     //podmieniam wartosc innerHTML
     //Czy to dobrze, ze tylko id idzie z daleka, a reszta jest z tej funkcji?
-
     var output = document.getElementById('taskList').innerHTML;
     output = output.substr(0, output.length - 5);
     output += '<li> <a href="/yoursubtasks/' + data.id[0].id + '" class="tasks"> Zrobic: ' + post.task + ', do dnia: ' + post.final_date;
+    ' </a> </li></ol>';
+    document.getElementById('taskList').innerHTML = output;
+    showAlert(1);
+  }).catch(function (value) {
+    showAlert(0);
+  });
+}
+
+var APIsubInputSubmit = document.getElementById("subInputSubmit");
+APIsubInputSubmit.addEventListener("click", APIaddSubTask, false);
+
+function APIaddSubTask(e) {
+  e.stopImmediatePropagation();
+  e.preventDefault();
+  e.stopPropagation();
+  var token = document.head.querySelector('meta[name="csrf-token"]');
+  var inpText = document.getElementById("inputTask").value;
+  var inpDate = document.getElementById("inputDate").value;
+  var inpPar = document.getElementById("inputParent").value;
+  var post = {
+    parent_id: inpPar,
+    task: inpText,
+    final_date: inpDate
+  };
+  fetch("/api/yoursubtasks", {
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: {
+      'X-CSRF-TOKEN': token.content,
+      'Content-Type': "application/json",
+      accept: "application/json"
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    //Pobieram output
+    //usuwam z niego ostatnie 5 znakow
+    //dodaje na koncu nowy task
+    //podmieniam wartosc innerHTML
+    //Czy to dobrze, ze tylko id idzie z daleka, a reszta jest z tej funkcji?
+    var output = document.getElementById('taskList').innerHTML;
+    output = output.substr(0, output.length - 5);
+    output += '<li> Zrobic: ' + post.task + ', do dnia: ' + post.final_date;
     ' </a> </li></ol>';
     document.getElementById('taskList').innerHTML = output;
     showAlert(1);

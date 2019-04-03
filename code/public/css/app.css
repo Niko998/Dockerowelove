@@ -11194,7 +11194,7 @@ label.panel-block:hover {
 
 .py-4 {
   background-color: #dedede;
-  height: 750px;
+  height: 80%;
 }
 
 #navbarDropdown {
@@ -11250,5 +11250,9 @@ label.panel-block:hover {
 
 #tasklist {
   padding-left: 50px;
+}
+
+#APIinputSubmit {
+  margin: 2px;
 }
 

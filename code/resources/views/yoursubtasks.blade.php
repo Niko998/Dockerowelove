@@ -26,13 +26,15 @@ Your tasks
                     Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
                     </div>
                     <div class="column">
-                    <button type="button" class="subTasksButtons" id= {{ $key->id}}>X</button>
+                    <button type="button" class="subDoneTasksButtons" id= {{ $key->id}}>Done!</button>
+                    <button type="button" class="subDelTasksButtons" id= {{ $key->id}}>X</button>
                     </div>
                 </div>
             </li>
             @endforeach
             <br>
             <br>
+            <!-- dodac nowego diva, do ktorego beda wpisywane nowe taski, po przeladowaniu strony one sie wyswietla z bazy danych, a div bedzie pusty --> 
     Dodaj nowy podtask
             <form action="/yourtasks" method="post">
                     @csrf

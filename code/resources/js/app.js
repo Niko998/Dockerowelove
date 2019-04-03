@@ -30,8 +30,8 @@ let jsonButton = document.getElementById("responder");
 var divJsonButton = document.getElementById("jsonData");
 var inpForm = document.getElementById("inputForm");
 var inpButton = document.getElementById("inputSubmit");
-var subInpButton = document.getElementById("subInputSubmit");
-var subDelButton = document.getElementsByClassName("subTasksButtons");
+var subDelButton = document.getElementsByClassName("subDelTasksButtons");
+var subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
 var taskSite = document.getElementById("taskList");
 
 
@@ -42,10 +42,6 @@ if(jsonButton){
 }
 if (inpButton){
   inpButton.addEventListener("click",addTask,false);
-}
-//inpForm.addEventListener("submit",addTask,false);
-if (subInpButton){
-  subInpButton.addEventListener("click",addTask,false);
 }
 for(i=0; i <subDelButton.length;i++){
   subDelButton[i].addEventListener("click",deleteTask,false);
