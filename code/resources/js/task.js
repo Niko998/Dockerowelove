@@ -16,9 +16,9 @@ function SPAtaskList(){
         let output = '<ol id="tasklist">';
 
         for (var i = 0; i < tasks.length; i++) {
-          console.log(tasks.done);
-          if (tasks.done){
-            output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks" style="text-decoration: line-through;"> Zrobic: ' + tasks[i].description +', do dnia: '+ tasks[i].final_date; ' </a> </li>'
+          if (tasks[i].done){
+            output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks" style="text-decoration: line-through;"> Zrobic: ' +
+             tasks[i].description +', do dnia: '+ tasks[i].final_date; ' </a> </li>'
           }
           else {
           output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks"> Zrobic: ' + tasks[i].description +', do dnia: '+ tasks[i].final_date; ' </a> </li>'
@@ -33,24 +33,46 @@ function SPAtaskList(){
 
 
 function SPAsubTaskList(){
-  fetch("/api/tasks",{
-    method: 'GET',
+  let token = document.head.querySelector('meta[name="csrf-token"]');
+  let urlArray = window.location.href.split('/')
+  let mainID = urlArray[urlArray.length - 1];
+  const post = {
+    id: mainID
+  }
+  fetch("/api/yoursubs",{
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: {
+      'X-CSRF-TOKEN': token.content,
+      'Content-Type': "application/json",
+      accept: "application/json"
+    }
+
   }).then(function(response){
     return response.json();
   })
   .then(function(data){
-      let tasks = data;
-      let output = '<ol id="tasklist">';
-      for (var i = 0; i < tasks.length; i++) {
-        if (tasks.done){
-          output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks" style="text-decoration: line-through;"> Zrobic: ' + tasks[i].description +', do dnia: '+ tasks[i].final_date; ' </a> </li>'
-        }
-        else {
-        output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks"> Zrobic: ' + tasks[i].description +', do dnia: '+ tasks[i].final_date; ' </a> </li>'
-      }}
-      output += '</ol>'
-      document.getElementById('taskList').innerHTML = output;
+    let tasks = data.subtasks;
+    let output = '<ol id="tasklist">';
+    for(i=0;i<tasks.length;i++){
+      if (tasks[i].done){
+        output += '<li><p class="tasks" style="text-decoration: line-through;"> Zrobic:' + tasks[i].description + ', do dnia: ' + tasks[i].final_date + '</p>' +
+        '<button type="button" class="subDoneTasksButtons" id='+ tasks[i].id +'>Done!</button>' +
+        '<button type="button" class="subDelTasksButtons" id= '+ tasks[i].id +'>X</button></li>';
+      }
+      else{
+        output += '<li><p class="tasks"> Zrobic:' + tasks[i].description + ', do dnia: ' + tasks[i].final_date + '</p>'+
+        '<button type="button" class="subDoneTasksButtons" id='+ tasks[i].id +'>Done!</button>' +
+        '<button type="button" class="subDelTasksButtons" id= '+ tasks[i].id +'>X</button></li></li>';
+      }
+    }
+    output += '</ol>';
+    document.getElementById("subtasks").innerHTML = output;
   })
+  }
+
+  if (document.getElementById("subtasks")){
+    SPAsubTaskList();
   }
 
 
@@ -135,14 +157,16 @@ function APIaddSubTask(e){
     return response.json();
   })
   .then(function(data){
-
+    console.log(data.id[0].id);
     //Pobieram output
     //usuwam z niego ostatnie 5 znakow
     //dodaje na koncu nowy task
     //podmieniam wartosc innerHTML
     //Czy to dobrze, ze tylko id idzie z daleka, a reszta jest z tej funkcji?
-    let output = document.getElementById('newSubtasks').innerHTML;
-    output += "<?php echo $i.\". \"; $i += 1; ?> Zrobic: " + post.task +", do dnia: "+ post.final_date;
+    let output = document.getElementById('subtasks').innerHTML;
+    output += '<li><p class="tasks"> Zrobic:' + post.task + ', do dnia: ' + post.final_date + '</p>'+
+    '<button type="button" class="subDoneTasksButtons" id='+ data.id[0].id +'>Done!</button>' +
+    '<button type="button" class="subDelTasksButtons" id= '+ tasks.id[0].id +'>X</button></li></li>';
     document.getElementById('newSubtasks').innerHTML = output;
           showAlert(1)
         })

@@ -23,5 +23,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/yourtasks','APIController@deletedJson');
     Route::post('/yoursubtasks','APIController@addedJson');
     Route::patch('/yoursubtasks','APIController@doneTask');
-    Route::get('/yoursubtasks','APIController@subTasksList');
+    Route::post('/yoursubs','APIController@subTasksList');
 });

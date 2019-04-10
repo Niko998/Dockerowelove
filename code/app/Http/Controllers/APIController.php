@@ -45,8 +45,8 @@ class APIController extends Controller
 
     public function subTasksList(Request $request)
     {
-        $subtasks = Todo::readSubTasks($id);
-        $maintask = Todo::readMainTask($id);
-        return response()->json(['subtasks' => $subtasks, 'maintask' => $maintask, 'mainTaskID'=> $id]);
+        $subtasks = Todo::readSubTasks($request->input("id"));
+        $maintask = Todo::readMainTask($request->input("id"));
+        return response()->json(['subtasks' => $subtasks, 'maintask' => $maintask]);
     }
 }

@@ -18,7 +18,7 @@ Your tasks
     Twoje Podtaski to:
         <?php $i = 1 ?>
         <div id="subTasksList">
-            @foreach ($subtasks as $key)
+            <!--@foreach ($subtasks as $key)
                     <div class="columns">
                         <div class="column is-4" id= {{ "subtask".$key->id }}>
                             <?php echo $i.". ";
@@ -30,8 +30,8 @@ Your tasks
                             <button type="button" class="subDelTasksButtons" id= {{ $key->id}}>X</button>
                         </div>
                     </div>
-                @endforeach
-                <div id="oldSubtasks"></div>
+                @endforeach -->
+                <div id="subtasks"></div>
 
                 <div id="newSubtasks"></div>
         </div>
