@@ -109,8 +109,15 @@ function SPAtaskList() {
     var output = '<ol id="tasklist">';
 
     for (var i = 0; i < tasks.length; i++) {
-      output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks"> Zrobic: ' + tasks[i].description + ', do dnia: ' + tasks[i].final_date;
-      ' </a> </li>';
+      console.log(tasks.done);
+
+      if (tasks.done) {
+        output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks" style="text-decoration: line-through;"> Zrobic: ' + tasks[i].description + ', do dnia: ' + tasks[i].final_date;
+        ' </a> </li>';
+      } else {
+        output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks"> Zrobic: ' + tasks[i].description + ', do dnia: ' + tasks[i].final_date;
+        ' </a> </li>';
+      }
     }
 
     output += '</ol>';
@@ -120,6 +127,30 @@ function SPAtaskList() {
 
 if (document.getElementById('taskList')) {
   SPAtaskList();
+}
+
+function SPAsubTaskList() {
+  fetch("/api/tasks", {
+    method: 'GET'
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    var tasks = data;
+    var output = '<ol id="tasklist">';
+
+    for (var i = 0; i < tasks.length; i++) {
+      if (tasks.done) {
+        output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks" style="text-decoration: line-through;"> Zrobic: ' + tasks[i].description + ', do dnia: ' + tasks[i].final_date;
+        ' </a> </li>';
+      } else {
+        output += '<li> <a href="/yoursubtasks/' + tasks[i].id + '" class="tasks"> Zrobic: ' + tasks[i].description + ', do dnia: ' + tasks[i].final_date;
+        ' </a> </li>';
+      }
+    }
+
+    output += '</ol>';
+    document.getElementById('taskList').innerHTML = output;
+  });
 }
 
 var APIinputSubmit = document.getElementById("APIinputSubmit");
@@ -200,14 +231,38 @@ function APIaddSubTask(e) {
     //dodaje na koncu nowy task
     //podmieniam wartosc innerHTML
     //Czy to dobrze, ze tylko id idzie z daleka, a reszta jest z tej funkcji?
-    var output = document.getElementById('taskList').innerHTML;
-    output = output.substr(0, output.length - 5);
-    output += '<li> Zrobic: ' + post.task + ', do dnia: ' + post.final_date;
-    ' </a> </li></ol>';
-    document.getElementById('taskList').innerHTML = output;
+    var output = document.getElementById('newSubtasks').innerHTML;
+    output += "<?php echo $i.\". \"; $i += 1; ?> Zrobic: " + post.task + ", do dnia: " + post.final_date;
+    document.getElementById('newSubtasks').innerHTML = output;
     showAlert(1);
   }).catch(function (value) {
     showAlert(0);
+  });
+}
+
+var subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
+
+for (i = 0; i < subDoneButton.length; i++) {
+  subDoneButton[i].addEventListener("click", doneTask, false);
+}
+
+function doneTask(e) {
+  var token = document.head.querySelector('meta[name="csrf-token"]');
+  var post = {
+    id: e.target.id
+  };
+  fetch("/api/yoursubtasks", {
+    method: 'PATCH',
+    body: JSON.stringify(post),
+    headers: {
+      'X-CSRF-TOKEN': token.content,
+      'Content-Type': "application/json",
+      accept: "application/json"
+    }
+  }).then(function () {
+    document.getElementById("subtask" + e.target.id).style.textDecoration = "line-through";
+  }).catch(function () {
+    alert("Cos poszlo nie tak!");
   });
 }
 
@@ -226,7 +281,6 @@ function APIdeleteTask(e) {
   var post = {
     id: delID.value
   };
-  console.log(delID.value);
   fetch("/api/yourtasks", {
     method: 'DELETE',
     body: JSON.stringify(post),

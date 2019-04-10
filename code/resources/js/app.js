@@ -31,9 +31,8 @@ var divJsonButton = document.getElementById("jsonData");
 var inpForm = document.getElementById("inputForm");
 var inpButton = document.getElementById("inputSubmit");
 var subDelButton = document.getElementsByClassName("subDelTasksButtons");
-var subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
-var taskSite = document.getElementById("taskList");
 
+var taskSite = document.getElementById("taskList");
 
 myElement.addEventListener("click",showing, false);
 document.addEventListener("click",hiding,false);

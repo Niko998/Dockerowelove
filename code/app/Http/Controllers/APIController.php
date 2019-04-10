@@ -36,4 +36,17 @@ class APIController extends Controller
         Todo::deleteTask($request->input("id")); 
         return response()->json([]);
     }
+
+    public function doneTask(Request $request)
+    {
+        Todo::doneTask($request->input("id"));
+        return response()->json([]);
+    }
+
+    public function subTasksList(Request $request)
+    {
+        $subtasks = Todo::readSubTasks($id);
+        $maintask = Todo::readMainTask($id);
+        return response()->json(['subtasks' => $subtasks, 'maintask' => $maintask, 'mainTaskID'=> $id]);
+    }
 }

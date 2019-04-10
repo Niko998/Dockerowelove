@@ -1,9 +1,9 @@
 Co dalej:   ->rozne home dla zalogowanego i goscia
                 ->Troche bardziej rozbudowane 
             ->interakcje z taskami
-                ->dodac odznaczanie zrobionych taskow
                 ->error handle w dodawaniu taskow
             ->dodawanie Subtaskow!
+                ->Poprawic wyswietlanie listy Subtaskow
             
 
 

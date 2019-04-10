@@ -15,6 +15,13 @@ $background: hsl(0, 63%, 43%);
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+.navbar-menu {
+  width: 50vw;
+}
+
+.navbar-start {
+  width: 10vw;
+}
 
 #nav_menu {
   float: right;
@@ -34,15 +41,13 @@ $background: hsl(0, 63%, 43%);
 }
 
 .py-4 {
-  background-color:hsl(0, 0%, 87%);
-  height: 80%;
+  background-color: hsl(204, 88%, 84%);//hsl(0, 0%, 87%);
+  height: 85.3vh;
 }
 
 #navbarDropdown {
   color: $grey-lighter
 }
-
-
 
 .tasks{
   color: black;
@@ -51,7 +56,8 @@ $background: hsl(0, 63%, 43%);
 
 .footer {
   font-family: "Arial";
-  padding: 1.5rem 1.5rem 1.5rem; 	
+  padding: 1rem 1rem 1rem; 	
+  background-color: #6babed;
 }
 
 %taskOperation {
@@ -72,6 +78,11 @@ $background: hsl(0, 63%, 43%);
 .nav-item {
   padding: 10px;
   color: $dark;
+}
+
+#homeBox {
+  width: 80vw;
+  
 }
 
 .card-body {

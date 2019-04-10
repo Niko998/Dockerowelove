@@ -16,24 +16,28 @@ Your tasks
        </div>
     <br>
     Twoje Podtaski to:
-    <ol>
-
-
-        @foreach ($subtasks as $key)
-            <li>
-                <div class="columns">
-                    <div class="column is-4">
-                    Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
+        <?php $i = 1 ?>
+        <div id="subTasksList">
+            @foreach ($subtasks as $key)
+                    <div class="columns">
+                        <div class="column is-4" id= {{ "subtask".$key->id }}>
+                            <?php echo $i.". ";
+                            $i += 1; ?>
+                            Zrobic: {{ $key->description }}, do dnia: {{ $key->final_date }}
+                        </div>
+                        <div class="column">
+                            <button type="button" class="subDoneTasksButtons" id= {{ $key->id}}>Done!</button>
+                            <button type="button" class="subDelTasksButtons" id= {{ $key->id}}>X</button>
+                        </div>
                     </div>
-                    <div class="column">
-                    <button type="button" class="subDoneTasksButtons" id= {{ $key->id}}>Done!</button>
-                    <button type="button" class="subDelTasksButtons" id= {{ $key->id}}>X</button>
-                    </div>
-                </div>
-            </li>
-            @endforeach
-            <br>
-            <br>
+                @endforeach
+                <div id="oldSubtasks"></div>
+
+                <div id="newSubtasks"></div>
+        </div>
+        <br>
+        <div id="doneTaskList"></div>
+        <br>
             <!-- dodac nowego diva, do ktorego beda wpisywane nowe taski, po przeladowaniu strony one sie wyswietla z bazy danych, a div bedzie pusty --> 
     Dodaj nowy podtask
             <form action="/yourtasks" method="post">
@@ -43,7 +47,6 @@ Your tasks
                     <input id="inputParent" name="parent_id" type="hidden" value="<?php echo $maintask[0]->id ?>">
                     <input type="submit" value="Dodaj subtask" class="btn btn-success mt-5 button is-link" id="subInputSubmit"/>             
                 </form>
-    </ol>
     <div id="subForm">
         <form action="/deleted" method="post">
             @csrf

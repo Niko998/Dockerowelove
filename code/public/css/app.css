@@ -11176,6 +11176,14 @@ label.panel-block:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.navbar-menu {
+  width: 50vw;
+}
+
+.navbar-start {
+  width: 10vw;
+}
+
 #nav_menu {
   float: right;
 }
@@ -11193,8 +11201,8 @@ label.panel-block:hover {
 }
 
 .py-4 {
-  background-color: #dedede;
-  height: 80%;
+  background-color: #b2ddfa;
+  height: 85.3vh;
 }
 
 #navbarDropdown {
@@ -11208,7 +11216,8 @@ label.panel-block:hover {
 
 .footer {
   font-family: "Arial";
-  padding: 1.5rem 1.5rem 1.5rem;
+  padding: 1rem 1rem 1rem;
+  background-color: #6babed;
 }
 
 .card-body,
@@ -11229,6 +11238,10 @@ label.panel-block:hover {
 .nav-item {
   padding: 10px;
   color: #363636;
+}
+
+#homeBox {
+  width: 80vw;
 }
 
 .card-body {
