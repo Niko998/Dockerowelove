@@ -125,7 +125,8 @@ function SPAtaskList() {
 
 if (document.getElementById('taskList')) {
   SPAtaskList();
-}
+} ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
 
 function SPAsubTaskList() {
   var token = document.head.querySelector('meta[name="csrf-token"]');
@@ -245,21 +246,27 @@ function APIaddSubTask(e) {
     //Czy to dobrze, ze tylko id idzie z daleka, a reszta jest z tej funkcji?
 
     var output = document.getElementById('subtasks').innerHTML;
-    output += '<li><p class="tasks"> Zrobic:' + post.task + ', do dnia: ' + post.final_date + '</p>' + '<button type="button" class="subDoneTasksButtons" id=' + data.id[0].id + '>Done!</button>' + '<button type="button" class="subDelTasksButtons" id= ' + tasks.id[0].id + '>X</button></li></li>';
-    document.getElementById('newSubtasks').innerHTML = output;
+    output = output.substr(0, output.length - 5);
+    output += '<li><p class="tasks"> Zrobic:' + inpText + ', do dnia: ' + inpDate + '</p>' + '<button type="button" class="subDoneTasksButtons" id=' + data.id[0].id + '>Done!</button>' + '<button type="button" class="subDelTasksButtons" id= ' + data.id[0].id + '>X</button></li></li></ol>';
+    document.getElementById('subtasks').innerHTML = output;
     showAlert(1);
   }).catch(function (value) {
     showAlert(0);
   });
-}
+} /////////////////////////////////////////////////////////////////////////////////////////////
+
 
 var subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
 
-for (i = 0; i < subDoneButton.length; i++) {
-  subDoneButton[i].addEventListener("click", doneTask, false);
+if (subDoneButton) {
+  for (i = 0; i < subDoneButton.length; i++) {
+    console.log(subDoneButton);
+    subDoneButton[i].addEventListener("click", doneTask, false);
+  }
 }
 
 function doneTask(e) {
+  debugger;
   var token = document.head.querySelector('meta[name="csrf-token"]');
   var post = {
     id: e.target.id

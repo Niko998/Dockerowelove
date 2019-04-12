@@ -11269,3 +11269,7 @@ label.panel-block:hover {
   margin: 2px;
 }
 
+#APIinputForm {
+  padding: 10px 70px 0 30px;
+}
+

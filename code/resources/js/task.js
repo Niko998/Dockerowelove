@@ -32,6 +32,7 @@ function SPAtaskList(){
     }
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 function SPAsubTaskList(){
   let token = document.head.querySelector('meta[name="csrf-token"]');
   let urlArray = window.location.href.split('/')
@@ -164,24 +165,29 @@ function APIaddSubTask(e){
     //podmieniam wartosc innerHTML
     //Czy to dobrze, ze tylko id idzie z daleka, a reszta jest z tej funkcji?
     let output = document.getElementById('subtasks').innerHTML;
-    output += '<li><p class="tasks"> Zrobic:' + post.task + ', do dnia: ' + post.final_date + '</p>'+
+    output = output.substr(0,output.length-5);
+    output += '<li><p class="tasks"> Zrobic:' + inpText + ', do dnia: ' + inpDate + '</p>'+
     '<button type="button" class="subDoneTasksButtons" id='+ data.id[0].id +'>Done!</button>' +
-    '<button type="button" class="subDelTasksButtons" id= '+ tasks.id[0].id +'>X</button></li></li>';
-    document.getElementById('newSubtasks').innerHTML = output;
-          showAlert(1)
+    '<button type="button" class="subDelTasksButtons" id= '+ data.id[0].id +'>X</button></li></li></ol>';
+    document.getElementById('subtasks').innerHTML = output;
+    
+    showAlert(1)
         })
     .catch(function(value){
       showAlert(0)
     })
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
 let subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
+if(subDoneButton){
 for(i=0; i <subDoneButton.length;i++){
+  console.log(subDoneButton);
   subDoneButton[i].addEventListener("click",doneTask,false);
-}
+}}
 
 function doneTask(e){
-  
+  debugger;
   let token = document.head.querySelector('meta[name="csrf-token"]');
   const post = {
     id: e.target.id
