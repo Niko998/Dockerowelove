@@ -37,6 +37,12 @@ class APIController extends Controller
         return response()->json([]);
     }
 
+    public function deletedSubJson(Request $request)
+    {
+        Todo::deleteSubTask($request->input("id"));
+        return response()->json([]);
+    }
+
     public function doneTask(Request $request)
     {
         Todo::doneTask($request->input("id"));

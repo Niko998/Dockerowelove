@@ -125,7 +125,8 @@ function SPAtaskList() {
 
 if (document.getElementById('taskList')) {
   SPAtaskList();
-} ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+} ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+//wypisywanie listy subtaskow  
 
 
 function SPAsubTaskList() {
@@ -151,14 +152,22 @@ function SPAsubTaskList() {
 
     for (i = 0; i < tasks.length; i++) {
       if (tasks[i].done) {
-        output += '<li><p class="tasks" style="text-decoration: line-through;"> Zrobic:' + tasks[i].description + ', do dnia: ' + tasks[i].final_date + '</p>' + '<button type="button" class="subDoneTasksButtons" id=' + tasks[i].id + '>Done!</button>' + '<button type="button" class="subDelTasksButtons" id= ' + tasks[i].id + '>X</button></li>';
+        output += '<li><p class="tasks" style="text-decoration: line-through;" id="subtask' + tasks[i].id + '"> Zrobic:' + tasks[i].description + ', do dnia: ' + tasks[i].final_date + '</p>' + '<button type="button" class="subDoneTasksButtons" id=' + tasks[i].id + '>Done!</button>' + '<button type="button" class="subDelTasksButtons" id= ' + tasks[i].id + '>X</button></li>';
       } else {
-        output += '<li><p class="tasks"> Zrobic:' + tasks[i].description + ', do dnia: ' + tasks[i].final_date + '</p>' + '<button type="button" class="subDoneTasksButtons" id=' + tasks[i].id + '>Done!</button>' + '<button type="button" class="subDelTasksButtons" id= ' + tasks[i].id + '>X</button></li></li>';
+        output += '<li><p class="tasks" id="subtask' + tasks[i].id + '"> Zrobic:' + tasks[i].description + ', do dnia: ' + tasks[i].final_date + '</p>' + '<button type="button" class="subDoneTasksButtons" id=' + tasks[i].id + '>Done!</button>' + '<button type="button" class="subDelTasksButtons" id= ' + tasks[i].id + '>X</button></li></li>';
       }
     }
 
-    output += '</ol>';
+    output += '</ol>'; //Dodawanie listenerow do przyciskow przy subtaskach
+
     document.getElementById("subtasks").innerHTML = output;
+    var subDelButton = document.getElementsByClassName("subDelTasksButtons");
+    var subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
+
+    for (i = 0; i < subDoneButton.length; i++) {
+      subDoneButton[i].addEventListener("click", doneTask, false);
+      subDelButton[i].addEventListener("click", delSubTasks, false);
+    }
   });
 }
 
@@ -256,15 +265,6 @@ function APIaddSubTask(e) {
 } /////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var subDoneButton = document.getElementsByClassName("subDoneTasksButtons");
-
-if (subDoneButton) {
-  for (i = 0; i < subDoneButton.length; i++) {
-    console.log(subDoneButton);
-    subDoneButton[i].addEventListener("click", doneTask, false);
-  }
-}
-
 function doneTask(e) {
   debugger;
   var token = document.head.querySelector('meta[name="csrf-token"]');
@@ -314,6 +314,28 @@ function APIdeleteTask(e) {
     window.setTimeout(function () {
       window.location = "/";
     }, 1000);
+  }).catch(function () {
+    showAlert(3);
+  });
+} //Deleting subtasks
+
+
+function delSubTasks(e) {
+  var token = document.head.querySelector('meta[name="csrf-token"]');
+  var delID = e.target.id;
+  var post = {
+    id: delID.value
+  };
+  fetch("/api/yoursubtasks", {
+    method: 'DELETE',
+    body: JSON.stringify(post),
+    headers: {
+      'X-CSRF-TOKEN': token.content,
+      'Content-Type': "application/json",
+      accept: "application/json"
+    }
+  }).then(function () {
+    showAlert(2);
   }).catch(function () {
     showAlert(3);
   });

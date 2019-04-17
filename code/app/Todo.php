@@ -52,6 +52,11 @@ class Todo extends Model
         DB::table('todos')->where('parent_id',$id)->delete();
     }
 
+    public static function deleteSubTask($id)
+    {
+        DB::table('todos')->where('id',$id)->delete();
+    }
+
     public function User(){
         return $this->belongsTo(User::class);
     }
