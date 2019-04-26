@@ -54,6 +54,7 @@ class Todo extends Model
 
     public static function deleteSubTask($id)
     {
+        
         DB::table('todos')->where('id',$id)->delete();
     }
 

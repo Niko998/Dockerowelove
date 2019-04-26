@@ -324,7 +324,7 @@ function delSubTasks(e) {
   var token = document.head.querySelector('meta[name="csrf-token"]');
   var delID = e.target.id;
   var post = {
-    id: delID.value
+    id: delID
   };
   fetch("/api/yoursubtasks", {
     method: 'DELETE',
