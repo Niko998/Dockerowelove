@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -21,6 +21,9 @@
 </head>
 <body>
     <div id="app">
+       
     </div>
+
+    <script src="{{ asset('js/vuescript.js') }}" ></script>
 </body>
 </html>

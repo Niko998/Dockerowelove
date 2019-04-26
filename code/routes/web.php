@@ -20,7 +20,7 @@ Route::post('/deleted','TodosController@deleted');
 Route::get('/api/yourtasks','APIController@apiget');
 Route::get('/api/yourtasksresp','TodosController@apiresponseget');
 Route::get('/tasks','TodosController@SPAtasksBlade');
-
+Route::view('/vue', 'vue');
 
 
 Auth::routes();
