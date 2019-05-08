@@ -1,4 +1,5 @@
-<template><div>
+<template>
+    <div>
     <div class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -8,3 +9,14 @@
         </div>
         </div>
 </template>
+
+<style>
+.footer{
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+</style>

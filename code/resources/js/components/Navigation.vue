@@ -10,7 +10,7 @@
                     <div class="navbar-start"></div>
                     <div class="navbar-end">
                                 <p class="nav-item">
-                                    <a class="nav-link">Login</a>
+                                    <a class="nav-link" v-on:click="$emit('seen')">Login</a>
                                 </p>
                                 <p class="nav-item">
                                     <a class="nav-link">Register</a>
@@ -21,6 +21,9 @@
         </nav>
 </template>
 
+<script>
+
+</script>
 
 
 <style>

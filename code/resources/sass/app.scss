@@ -12,6 +12,10 @@ $background: hsl(0, 63%, 43%);
 
 @import '~bulma/bulma.sass';
 
+html {
+  background: #b2ddfa;
+}
+
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
